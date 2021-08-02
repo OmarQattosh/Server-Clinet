@@ -1,0 +1,25 @@
+node{
+stage('git repo clone'){
+ git branch: 'main' , url: 'http://github.com/OmarQattosh/Server-Clinet'
+}
+stage('server build'){
+ sh 'docker build -t servering server'
+}
+stage('server run'){
+sh ' docker run -d -p 8899:81 --name testserver servering'
+
+}
+stage('clinet build'){
+sh ' docker build -t clineting clinet'
+
+}
+stage('clinet run'){
+sh ' docker run -d -p 8899:80 --name=clinetcont clinet'
+}
+stage('validate'){
+sh ' docker exec -it clinetcont ./validate.sh'
+
+}
+
+
+}
