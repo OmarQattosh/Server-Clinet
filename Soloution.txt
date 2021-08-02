@@ -1,3 +1,0 @@
-FIRST :- ipaddr for the host server will simply not work ( ipv4 mod )
-Second :- HOW TO SPECIFY WHICH DOCKER FILE TO RUN 
-
